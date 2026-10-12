@@ -1,0 +1,3 @@
+idf_component_register(SRCS "main.c"
+    INCLUDE_DIRS "."
+    REQUIRES nvs_flash fatfs vfs esp_timer json elm327 obd obdlog transport sdmmc esp_driver_sdmmc esp_driver_uart)

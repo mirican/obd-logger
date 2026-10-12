@@ -1,0 +1,5 @@
+# Nakladka do builda "syntax-check" BLE na esp32s3 (walidacja kodu NimBLE).
+# Uzycie: idf.py -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.defaults.bt" set-target esp32s3 build
+CONFIG_BT_ENABLED=y
+CONFIG_BT_NIMBLE_ENABLED=y
+CONFIG_BTDM_CTRL_MODE_BLE_ONLY=y

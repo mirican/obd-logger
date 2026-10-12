@@ -1,0 +1,17 @@
+# obd-logger — pliki pomijane w git
+
+# artefakty budowania (Arduino/ESP-IDF)
+build/
+**/build/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# systemowe / robocze
+*.log
+*.part
+Thumbs.db
+desktop.ini

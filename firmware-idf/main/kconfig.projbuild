@@ -1,0 +1,76 @@
+menu "obd-logger"
+
+    config OBDLOG_VEHICLE
+        string "Nazwa pojazdu (do meta sesji)"
+        default "auto"
+
+    config OBDLOG_ADAPTER_NAME
+        string "Nazwa BLE adaptera (prefix)"
+        default "vLinker"
+
+    config OBDLOG_USE_BT
+        bool "Transport: BLE (vLinker)"
+        default y
+
+    config OBDLOG_USE_UART
+        bool "Transport: UART (bench)"
+        default n
+
+    if OBDLOG_USE_UART
+        config OBDLOG_UART_NUM
+            int "UART port"
+            default 1
+        config OBDLOG_UART_TX_PIN
+            int "UART TX pin (-1 = domyslny)"
+            default -1
+        config OBDLOG_UART_RX_PIN
+            int "UART RX pin (-1 = domyslny)"
+            default -1
+        config OBDLOG_UART_BAUD
+            int "UART baud"
+            default 38400
+    endif
+
+    config OBDLOG_PIDS
+        string "Lista PID (np. 010C,010D,012F)"
+        default "010C,010D,0105,012F"
+
+    config OBDLOG_INTERVAL_MS
+        int "Odstep miedzy rundami PID [ms]"
+        default 200
+
+    config OBDLOG_CMD_TIMEOUT_MS
+        int "Timeout komendy [ms]"
+        default 3000
+
+    config OBDLOG_LOG_DIR
+        string "Katalog logow (SD)"
+        default "/sdcard/logs"
+
+    config OBDLOG_ROTATE_KB
+        int "Rotacja pliku JSONL [KB]"
+        default 8192
+
+    if OBDLOG_USE_BT
+        config OBDLOG_BT_SCAN_MS
+            int "Czas skanu BLE [ms]"
+            default 8000
+    endif
+
+    config OBDLOG_SD_CLK_PIN
+        int "SD CLK pin (-1 = domyslny; TODO: piny z demo Guition)"
+        default -1
+
+    config OBDLOG_SD_CMD_PIN
+        int "SD CMD pin (-1 = domyslny)"
+        default -1
+
+    config OBDLOG_SD_D0_PIN
+        int "SD D0 pin (-1 = domyslny)"
+        default -1
+
+    config OBDLOG_DTC_ON_START
+        bool "Migawka DTC na starcie sesji"
+        default y
+
+endmenu
