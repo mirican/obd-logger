@@ -15,3 +15,6 @@ venv/
 *.part
 Thumbs.db
 desktop.ini
+
+# wewnętrzne dokumenty robocze (lokalne, nie publikujemy)
+/handoff.md
